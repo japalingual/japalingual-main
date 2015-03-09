@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # set the relative url as members for link generation, etc
+  Rails.application.config.relative_url_root = '/members'
 end

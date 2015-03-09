@@ -1,0 +1,40 @@
+<%= content_for :head do %>
+    <script type="text/javascript" src="//code.tinypass.com/tinypass.js"></script>
+<% end %>
+
+<h1>Tinypass#test</h1>
+
+<div>
+  <a href="#" onclick='buyNow("PW_9523295", "yQcKjJ3iYv")'>Click to Purchase this thing!</a>
+</div>
+
+<tp:request type="purchase" rid="MEMBERSHIP" url="https://sandbox.tinypass.com/v2" rdata="{jax}tGrxG3wgCurKqt6Kudpg5pNPNKb1Mw5DUERbIwvlm3AkWEwz3s-_DBnBtwqpI5n4Y4m7e0edSmZFUnnCRza6cXJc71-RrJt_x9jTLMlKIcOLw2j5CeQ4SFlTDCMLHK2_ujKIwqlyJvNlu2t3Sh-_9-g-zNoiEQeUR1WTj3rKyDyUnFv6FM3np-TxdDSMCWaQe0TZBuX7dqrSv61jDHLQ9vIJ7FRSgZtxy88Wq0mAFcrdryBzXcar7jsuXuIzWL3PHOjz7CCNuv1u05YQWQObAwpvxMDmEd2ZIhc81Uwfkzg5sUTQ7u3EB-UP09lYqpFWquME2ZpU-rf9-ZSVZ7URpQ6-5evEuj8vd-FDVcsg-tS7_l0U3xcy6jSKv6Dng1KRSPd4xsg3heKwAmRMYYws6Q~~~1fyhVrwBk3d1e6lGUxFG2bVmNQ0O1mlfTO9ylkseB7U" aid="yQcKjJ3iYv" cn="__TP_yQcKjJ3iYv_TOKEN" v="2.0.7"></tp:request>
+
+<script type='text/javascript'>
+    //Configure the environment for the Tinypass client code
+    //TinyPass.ENV = "prod";
+    TinyPass.ENV = "sand";
+    TinyPass.SANDBOX = true;
+
+    //The default client-side access approach is to refresh once access is granted
+    function buyNow(rid, aid){
+        var params = {
+            rid: rid,
+            aid: aid,
+
+            //Callback to catch any errors
+            onError: function(message){
+                //error handler
+                alert(message);
+            },
+
+            //Callback for listening after the popup closes and the user has access
+            onAccessGranted: function(data){
+                window.location.reload();
+            }
+        };
+
+        //Show the popup, onAccessGranted or onError will be called on completion
+        tinypass.showOffer(params);
+    }
+</script>

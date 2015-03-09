@@ -4,19 +4,17 @@ gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
-gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'unicorn'
+  gem 'unicorn-rails'
 end
-gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'pg'
-gem 'unicorn'
-gem 'unicorn-rails'
+gem 'requirejs-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

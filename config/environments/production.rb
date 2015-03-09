@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # set the relative url as members for link generation, etc
-  Rails.application.config.relative_url_root = '/members'
+  config.relative_url_root = '/members'
 end

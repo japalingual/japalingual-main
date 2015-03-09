@@ -22,8 +22,5 @@ module RailsBootstrap
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-
-    # set the relative url as members for link generation, etc
-    config.relative_url_root = '/members'
   end
 end

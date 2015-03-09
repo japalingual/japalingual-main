@@ -12,6 +12,7 @@ group :development, :test do
   gem 'unicorn'
   gem 'unicorn-rails'
 end
+gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'pg'
 gem 'requirejs-rails'

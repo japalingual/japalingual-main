@@ -15,9 +15,57 @@ define(
   [
     'jquery',
     'bootstrap',
-    'test/test'
+    'libs/youtube-loader'
   ],
-  function($, bootstrap, test) {
-    console.log('here');
+  function(
+    $,
+    bootstrap,
+    youtubeLoader
+  ) {
+    var ytPlayer = null;
+
+    var onPlayerReady = function() {
+      console.log('Player Ready');
+      ytPlayer.playVideo();
+    };
+
+    var intervalIsRunning = false;
+    var onPlayerStateChange = function(event) {
+      console.log('Player State Changed');
+      if (!intervalIsRunning && event.data === 1) {
+        window.setInterval(function() {
+          $('p.video-seconds').text(ytPlayer.getCurrentTime());
+          intervalIsRunning = true;
+        }, 250);
+      }
+    };
+
+    var eventListeners = {
+      'onReady' : onPlayerReady,
+      'onStateChange' : onPlayerStateChange
+    };
+
+    var ytPlayerOptions = {
+      videoId: 'P-8mBmF_ZBs',
+      width: 356,
+      height: 200,
+      // For a list of all parameters, see:
+      // https://developers.google.com/youtube/player_parameters
+      playerVars: {
+        autoplay: 0,
+        controls: 0,
+        modestbranding: 1,
+        rel: 0,
+        showinfo: 0
+      },
+      events: eventListeners
+    };
+
+    youtubeLoader.init(
+      $('div#video-container')[0],
+      ytPlayerOptions
+    ).done(function(player) {
+        ytPlayer = player;
+    });
   }
 );

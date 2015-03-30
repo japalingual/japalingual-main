@@ -10,8 +10,27 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require bootstrap-sprockets
-//= require_tree .
+define(
+  [
+    'jquery',
+    'react',
+    'jsx!video-playback/video-playback-application',
+    'video-playback/flux-app/dispatcher'
+  ],
+  function(
+    $,
+    React,
+    VideoPlaybackApplication,
+    flux
+  ) {
+    React.render(
+      React.createElement(
+        VideoPlaybackApplication,
+        {
+          flux: flux
+        }
+      ),
+      $('div.video-playback-root')[0]
+    );
+  }
+);

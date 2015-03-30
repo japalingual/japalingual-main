@@ -10,24 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
-define(
-  'baseLoader',
-  [
-    'templateData',
-    'jquery'
-  ],
-  function(
-    templateData,
-    $
-  ) {
-    return {
-      linesData: $.parseJSON(templateData.linesData),
-      videoId: templateData.videoId
-    };
-  }
-);
-
 define(
   [
     'jquery',

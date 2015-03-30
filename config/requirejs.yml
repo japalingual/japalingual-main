@@ -10,6 +10,7 @@ paths:
   text: "libs/text"
   react: "libs/react_0.12.2"
   fluxxor: "libs/fluxxor"
+  baseLoader: "empty:"
 
 shim:
   bootstrap:

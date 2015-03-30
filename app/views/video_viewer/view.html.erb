@@ -8,10 +8,10 @@
     <!-- load requirejs application -->
     <%= requirejs_include_tag 'video-viewer' %>
     <script>
-      define('templateData', [], function() {
+      define('baseLoader', ['jquery'], function($) {
           return {
             videoId: '<%= @video_id %>',
-            linesData: '<%= raw @linesData %>'
+            linesData: $.parseJSON('<%= raw @linesData %>')
           };
       })
     </script>

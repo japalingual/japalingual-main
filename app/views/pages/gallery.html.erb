@@ -1,0 +1,10 @@
+<% content_for :title do %>About<% end %>
+<h3>Gallery Test</h3>
+<div class="video-playback-root">
+
+</div>
+
+<% content_for :scripts do %>
+    <!-- load requirejs application -->
+    <%= requirejs_include_tag 'video-viewer' %>
+<% end %>

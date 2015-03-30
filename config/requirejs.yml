@@ -1,6 +1,15 @@
+modules:
+  - name: 'video-viewer'
+
 paths:
   jquery: "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min"
   bootstrap: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap"
+  JSXTransformer: "libs/JSXTransformer-0.12.2"
+  underscore: "libs/underscore"
+  jsx: "libs/jsx"
+  text: "libs/text"
+  react: "libs/react_0.12.2"
+  fluxxor: "libs/fluxxor"
 
 shim:
   bootstrap:

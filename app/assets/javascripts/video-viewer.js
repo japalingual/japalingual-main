@@ -12,12 +12,43 @@
 //
 
 define(
+  'baseLoader',
+  [
+    'templateData',
+    'jquery'
+  ],
+  function(
+    templateData,
+    $
+  ) {
+    return {
+      linesData: $.parseJSON(templateData.linesData),
+      videoId: templateData.videoId
+    };
+  }
+);
+
+define(
   [
     'jquery',
-    'bootstrap',
-    'test/test'
+    'react',
+    'jsx!video-playback/video-playback-application',
+    'video-playback/flux-app/dispatcher'
   ],
-  function($, bootstrap, test) {
-    console.log('here');
+  function(
+    $,
+    React,
+    VideoPlaybackApplication,
+    flux
+  ) {
+    React.render(
+      React.createElement(
+        VideoPlaybackApplication,
+        {
+          flux: flux
+        }
+      ),
+      $('div.video-playback-root')[0]
+    );
   }
 );
